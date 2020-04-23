@@ -1,5 +1,6 @@
 ##### used to run all python unittest files (test_*.py) by command 'make' - running it again will not re-do already passed tests - use 'make clean' to clear the passed state and be able to run all again
-SOURCES :=  $(mkdir -p tmp ; shell find ./ -maxdepth 1 -type f -name 'test_*.py')
+MKDIR := $(shell mkdir -p tmp)
+SOURCES :=  $(shell find ./ -maxdepth 1 -type f -name 'test_*.py')
 OBJS := $(shell find -maxdepth 1 -type f -name 'test_*.py' -printf "tmp/%P_test_output\n" | sort)
 
 
